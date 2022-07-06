@@ -8,21 +8,21 @@ cmake_minimum_required(VERSION 3.10.2)
 #设置工程名字
 project("jnidemo")
 
-
 #add_library target_include_directories  需要成对出现
 add_library( # Sets the name of the library.
-        native-lib
+        network
         # Sets the library as a shared library.
         SHARED
         # Provides a relative path to your source file(s).
         src/main/cpp/native-lib.cpp)
+# 指向.H头文件位置
 target_include_directories(
-        native-lib
+        network
         PRIVATE
         ${CMAKE_SOURCE_DIR}/src/main/cpp/include
 )
 
-
+SET (LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 # 添加第三方库
 add_library(HancNetSDK
         # 设置引入的函数库类型为静态库
@@ -45,7 +45,7 @@ find_library( # Sets the name of the path variable.
 
 
 target_link_libraries( # Specifies the target library.
-        native-lib
+        network
         HancNetSDK
         # Links the target library to the log library
         # included in the NDK.

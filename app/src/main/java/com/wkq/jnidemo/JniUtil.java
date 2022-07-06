@@ -1,9 +1,11 @@
 package com.wkq.jnidemo;
 
-
+/**
+ * Jni 工具类
+ */
 public class JniUtil {
         static {
-            System.loadLibrary("native-lib");
+            System.loadLibrary("network");
             System.loadLibrary("HancNetSDK");
         }
 

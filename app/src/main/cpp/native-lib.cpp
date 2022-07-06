@@ -5,10 +5,8 @@
 extern "C"
 JNIEXPORT jstring JNICALL
 Java_com_wkq_jnidemo_JniUtil_stringFromJNI(JNIEnv *env, jclass clazz) {
-
-    std::string hello = "Hello from C++";
+    std::string hello = "测试JNI调用";
     return env->NewStringUTF(hello.c_str());
-
 }
 
 extern "C"
@@ -18,9 +16,7 @@ Java_com_wkq_jnidemo_JniUtil_HancNetInit(JNIEnv *env, jclass clazz) {
 }
 
 
-static jclass jClassString = NULL;
-
-//jstring to char*
+// jstring to char*
 char *jstringTostring(JNIEnv *env, jstring jstr) {
     char *rtn = NULL;
     jclass clsstring = env->FindClass("java/lang/String");
@@ -40,7 +36,6 @@ char *jstringTostring(JNIEnv *env, jstring jstr) {
 
 void NetCallback(int lUserID, char *pBuf, int nBufLen, long dwUser) {
     if (lUserID!=-1){
-
     }
 }
 extern "C"
